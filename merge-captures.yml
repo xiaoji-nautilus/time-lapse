@@ -1,0 +1,4 @@
+capturesdir: D:\time-lapse\tmp
+targetdir: D:\time-lapse\output
+targetfile: timelapse.mp4
+mergestep: 1
