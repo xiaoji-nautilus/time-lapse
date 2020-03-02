@@ -5,7 +5,7 @@
 
 于是我拍摄并制作了下面的视频
 
-<video src="https://pluto.guobaa.com/cal/img/follower6mix.mp4" controls="controls" width="100%" height="auto"/>
+[![延时摄影](https://pluto.guobaa.com/cal/img/time-lapse-sample.jpg)](https://pluto.guobaa.com/cal/img/follower6mix.mp4)
 
 有朋友看到了这段视频，非常喜欢，于是询问制作过程和制作难度
 下面便是我的制作教程，希望对有兴趣延迟拍摄的朋友们提供帮助
@@ -213,7 +213,7 @@ pip install pyyaml
 [^mergestep]: 合并视频速度，默认为1，表示和抓取的速度一致，设置为2，则表示抓取速度的1倍合并成视频
 
 
-##### 运行 
+##### 运行
 
 运行参数设置好之后，在命令行窗口执行以下命令执行视频合并程序
 
@@ -262,4 +262,3 @@ pip install pyyaml
 [^注1]: NAS（Network Attached Storage：网络附属存储）按字面简单说就是连接在网络上，具备资料存储功能的装置，因此也称为“[网络存储器](https://baike.baidu.com/item/网络存储器/9485387)”。
 
 [^注2]: 延时摄影又称“[定时摄影](https://baike.baidu.com/item/定时摄影)”或“延时摄影”，[特殊摄影](https://baike.baidu.com/item/特殊摄影/10402998)方法之一。延时摄影是以一种较低的[帧率](https://baike.baidu.com/item/帧率/1052590)拍下图像或者视频，然后用正常或者较快的速率播放画面的摄影技术。利用延时控制器，每隔一定的时间间隔之后快门拍摄一次，一段时间后拍摄得到的若干张照片进行连续放映。经常在电视上看到的例子就是花朵开放，天亮过程，风起云涌。
-
