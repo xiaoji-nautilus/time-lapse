@@ -5,7 +5,7 @@
 
 于是我拍摄并制作了下面的视频
 
-[![延时摄影](https://pluto.guobaa.com/cal/img/time-lapse-sample.jpg)](https://pluto.guobaa.com/cal/img/follower6mix.mp4)
+[![延时摄影视频](https://pluto.guobaa.com/cal/img/time-lapse-sample.jpg)](https://pluto.guobaa.com/cal/img/follower6mix.mp4)
 
 有朋友看到了这段视频，非常喜欢，于是询问制作过程和制作难度
 下面便是我的制作教程，希望对有兴趣延迟拍摄的朋友们提供帮助
