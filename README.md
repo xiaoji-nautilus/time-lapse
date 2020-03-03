@@ -175,6 +175,12 @@ pip install pyyaml
 
 以上命令可以重复执行，直到没有出现红色的错误为止，就说明安装成功了
 
+或者使用以下命令安装
+
+```CMD
+pip install -r requirements.txt
+```
+
 
 
 <h4 id="下载程序">下载程序</h4>
