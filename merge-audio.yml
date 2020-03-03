@@ -1,0 +1,4 @@
+audiofile: D:\time-lapse\audios\The sky city.mp3
+videofile: D:\time-lapse\output\timelapse.mp4
+targetdir: D:\time-lapse\output
+targetfile: timelapse-audio.mp4

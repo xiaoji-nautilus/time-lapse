@@ -237,7 +237,44 @@ pip install pyyaml
 
 处理速度大约是每分钟可以合并312张图片，或者是每分钟视频大约需要5分钟以上的时间合并处理。
 
-#### 4、剪辑视频
+#### 4、给视频增加音乐
+
+##### 安装组件
+
+给视频添加音乐，需要增加一个组件（moviepy）
+在命令行窗口中，进入time-lapse目录，然后执行以下命令
+
+```CMD
+> pip install moviepy
+```
+
+以上命令可以重复执行，直到没有出现红色的错误为止，就说明安装成功了
+
+##### 设置运行参数
+
+使用文本编辑器（记事本、Notepad++或者Atom等）打开merge-audio.yml文件，编辑参数
+
+![image-20200303104002949](D:\github\time-lapse\screenshots\merge-audio-params.png)
+
+
+[^audiofile]: 合成音频文件
+[^videofile]: 合成视频文件
+[^targetdir]: 视频输出目录
+[^targetfile]: 视频输出文件名
+
+##### 运行
+
+运行参数设置好之后，在命令行窗口执行以下命令执行视频和音乐合并程序
+
+```CMD
+> py merge-audio.py
+```
+
+运行显示如下图所示
+
+![image-20200303122424582](D:\github\time-lapse\screenshots\win-cmd-merge-audio.png)
+
+#### 5、剪辑视频
 
 合并完成的视频只有视频轨，没有音频轨，所以播放的时候没有声音，或者希望把片头和片尾，以及字幕等效果加入进去，你就需要使用视频剪辑工具来帮你完成后续的工作了。
 
