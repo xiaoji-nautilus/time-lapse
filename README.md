@@ -254,7 +254,7 @@ pip install pyyaml
 
 使用文本编辑器（记事本、Notepad++或者Atom等）打开merge-audio.yml文件，编辑参数
 
-![image-20200303104002949](D:\github\time-lapse\screenshots\merge-audio-params.png)
+![image-20200303104002949](https://pluto.guobaa.com/cal/img/merge-audio-params.png)
 
 
 [^audiofile]: 合成音频文件
@@ -272,7 +272,7 @@ pip install pyyaml
 
 运行显示如下图所示
 
-![image-20200303122424582](D:\github\time-lapse\screenshots\win-cmd-merge-audio.png)
+![image-20200303122424582](https://pluto.guobaa.com/cal/img/win-cmd-merge-audio.png)
 
 #### 5、剪辑视频
 
