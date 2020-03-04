@@ -104,10 +104,12 @@ def capture(videofilename, videofile):
 def dirfilter(dirname):
     dirtime = datetime.strptime(dirname, "%Y%m%d%H")
     currenttime = datetime.strptime(control.currenttime.strftime("%Y/%m/%d %H:00:00"), "%Y/%m/%d %H:%M:%S")
+    totime = datetime.strptime(control.totime.strftime("%Y/%m/%d %H:00:00"), "%Y/%m/%d %H:%M:%S")
 
     delta = dirtime - currenttime
+    enddelta = totime - dirtime
 
-    if delta.days >= 0:
+    if delta.days >= 0 and enddelta.days >= 0:
         return True
     else:
         return False
