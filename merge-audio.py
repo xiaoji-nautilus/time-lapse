@@ -41,9 +41,29 @@ def mergeAudio(audiofile, videofile, targetdir, targetfile):
     audio = AudioFileClip(audiofile)
     video = VideoFileClip(videofile)
 
+    # 音频时长确保和视频长度一致
+    aud = audio.duration
+    vid = video.duration
+
+    if aud > vid:       # 音频长度超过视频长度
+        print('音频长度超过视频长度')
+        fitableAudio = audio.cutout(0, vid)
+    elif aud < vid:     # 音频长度小于视频长度
+        print('音频长度小于视频长度')
+        count = vid // aud
+        gap = vid % aud
+
+        audios = [audio] * count
+        appendaudio = audio.cutout(0, gap)
+        audios.append(appendaudio)
+        fitableAudio = CompositeAudioClip(audios)
+    else:               # 音视频长度一致
+        print('音视频长度一致')
+        fitableAudio = audio
+
     mergedfile = targetdir + "/" + targetfile
 
-    mergedVideo = CompositeVideoClip([video]).set_audio(audio)
+    mergedVideo = CompositeVideoClip([video]).set_audio(fitableAudio)
     mergedVideo.write_videofile(mergedfile, codec='libx264', fps=24)
 
 mergeAudio(control.audiofile, control.videofile, control.targetdir, control.targetfile)
