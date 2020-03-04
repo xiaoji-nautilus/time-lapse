@@ -2,6 +2,7 @@ import os, sys
 from datetime import datetime
 import cv2
 import yaml
+import threading
 
 class ControlDefine:
     def __init__(self,
@@ -76,10 +77,6 @@ def capture(videofilename, videofile):
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     print(videofilename)
 
-    # tmp目录不存在则创建
-    if not(os.path.exists(dirname + "/tmp/")):
-        os.mkdir(dirname + "/tmp/")
-
     i = 0
 
     while(isOpened):
@@ -100,7 +97,7 @@ def capture(videofilename, videofile):
     # 当前处理完成的时间保存到配置文件
     filetime = datetime.fromtimestamp(int(unixtime))
     currenttime = filetime.strftime("%Y/%m/%d %H:%M:00")
-    if control.current != currenttime:
+    if control.current < currenttime:
         control.current = currenttime
         saveConfig("time-lapse.yml", control)
 
@@ -127,6 +124,19 @@ def filefilter(filename):
     else:
         return False
 
+# 多线程提取图像，加快处理速度
+class captureThread(threading.Thread):
+    def __init__(self, filename, filepath):
+        threading.Thread.__init__(self)
+        self.filename = filename
+        self.filepath = filepath
+    def run(self):
+        print ("开始线程: " + self.filename)
+        capture(self.filename, self.filepath)
+        print ("退出线程: " + self.filename)
+
+captureThreads = [None, None, None, None]
+
 def walkdir(path, filterdir, fitlerfile):
     lsdir = os.listdir(path)
 
@@ -143,6 +153,26 @@ def walkdir(path, filterdir, fitlerfile):
     if files:
         for i in files:
             if fitlerfile(i):
-                capture(i, os.path.join(path, i))
+                runningTreads = 0
+
+                for index in range(len(captureThreads)):
+                    thread = captureThreads[index]
+
+                    if thread is None or not thread.is_alive():
+                        thread = captureThread(i, os.path.join(path, i))
+                        captureThreads[index] = thread
+                        thread.start()
+                        runningTreads += 1
+                        break
+                    else:
+                        runningTreads += 1
+
+                if runningTreads == len(captureThreads):
+                    for thread in captureThreads:
+                        thread.join()
+
+# tmp目录不存在则创建
+if not(os.path.exists(dirname + "/tmp/")):
+    os.mkdir(dirname + "/tmp/")
 
 walkdir(control.srcdir, filterdir = dirfilter, fitlerfile = filefilter)
