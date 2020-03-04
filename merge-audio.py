@@ -1,4 +1,5 @@
 import os, sys
+import shutil
 import yaml
 from moviepy.editor import *
 
@@ -47,21 +48,28 @@ def mergeAudio(audiofile, videofile, targetdir, targetfile):
 
     if aud > vid:       # 音频长度超过视频长度
         print('音频长度超过视频长度')
-        fitableAudio = audio.cutout(0, vid)
+        fitableAudio = audio.subclip(0, vid)
     elif aud < vid:     # 音频长度小于视频长度
         print('音频长度小于视频长度')
         count = vid // aud
-        gap = vid % aud
 
-        audios = [audio] * count
-        appendaudio = audio.cutout(0, gap)
-        audios.append(appendaudio)
+        audios = [audio] * (count + 1)
+
         fitableAudio = CompositeAudioClip(audios)
+        fitableAudio = fitableAudio.subclip(0, vid)
     else:               # 音视频长度一致
         print('音视频长度一致')
-        fitableAudio = audio
+        fitableAudio = audio.copy()
 
     mergedfile = targetdir + "/" + targetfile
+
+    if os.path.exists(mergedfile):
+        backupfile = targetdir + "/backup_" + targetfile
+
+        if os.path.exists(backupfile):
+            os.remove(backupfile)
+
+        shutil.move(mergedfile, backupfile)
 
     mergedVideo = CompositeVideoClip([video]).set_audio(fitableAudio)
     mergedVideo.write_videofile(mergedfile, codec='libx264', fps=24)
