@@ -50,13 +50,12 @@ def mergeAudio(audiofile, videofile, targetdir, targetfile):
         print('音频长度超过视频长度')
         fitableAudio = audio.subclip(0, vid)
     elif aud < vid:     # 音频长度小于视频长度
-        print('音频长度小于视频长度')
-        count = vid // aud
+        print('音频长度' + str(aud) + '小于视频长度' + str(vid))
+        count = int(vid // aud)
 
-        audios = [audio] * (count + 1)
+        print('音频重复' + str(count + 1) + '次')
 
-        fitableAudio = CompositeAudioClip(audios)
-        fitableAudio = fitableAudio.subclip(0, vid)
+        fitableAudio = AudioClip(lambda t: audio.get_frame(t % aud), vid)
     else:               # 音视频长度一致
         print('音视频长度一致')
         fitableAudio = audio.copy()
