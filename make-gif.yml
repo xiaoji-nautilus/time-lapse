@@ -1,0 +1,4 @@
+capturesdir: D:\time-lapse\output
+targetdir: D:\time-lapse\output
+targetfile: timelapse.gif
+mergestep: 60
