@@ -3,6 +3,9 @@
 2020年的2019-nCov疫情让我有时间来琢磨这件事情
 我手上有一个米家1080P智能**摄像机**（一般用于监控用途，130度广角，支持网络存储监控录像），一个小米路由器（带1T硬盘存储，支持**NAS**<sup>[注1](#note1)</sup>），一个**放大镜**（**可选**），一台Windows**电脑**。还有两盆即将开花的**橡皮花**。
 
+持续跟踪长寿花开花过程
+[全部拍摄视频](https://gitee.com/leon_xi/time-lapse/attach_files)
+
 于是我拍摄并制作了下面的视频
 
 [![延时摄影视频1](https://pluto.guobaa.com/cal/img/timelapse-20200301.gif)](https://pluto.guobaa.com/cal/img/timelapse-20200301.mp4)[![延时摄影视频2](https://pluto.guobaa.com/cal/img/timelapse-20200304.gif)](https://pluto.guobaa.com/cal/img/timelapse-20200304.mp4)
