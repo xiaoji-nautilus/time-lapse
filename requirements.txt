@@ -30,5 +30,5 @@ requests==2.23.0
 six==1.14.0
 termcolor==1.1.0
 tqdm==4.43.0
-urllib3==1.25.8
+urllib3==1.26.5
 wcwidth==0.1.8
